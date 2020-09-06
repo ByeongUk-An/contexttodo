@@ -1,11 +1,18 @@
 import React from "react";
 import Globalstyles from "./styles/Globalstyles";
 import TodoTemplate from "./components/TodoTemplate";
+import TodoHead from "./components/TodoHead";
+import TodoList from "./components/TodoList";
+import TodoCreate from "./components/TodoCreate";
 
 function App() {
   return (
     <>
-      <TodoTemplate>안녕하세요!</TodoTemplate>
+      <TodoTemplate>
+        <TodoHead />
+        <TodoList />
+        <TodoCreate />
+      </TodoTemplate>
       <Globalstyles />
     </>
   );
