@@ -47,13 +47,28 @@ const TodoHeadBlock = styled.div`
 `;
 
 function TodoHead() {
-  const { clear } = useContext(Context);
+  const { clear, todos } = useContext(Context);
+  const day = new Date();
+  let year = day.getFullYear();
+  let month = day.getMonth();
+  let date = day.getDate();
+  let dday = day.getDay();
+  const week = [
+    "일요일",
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+  ];
+
   return (
     <TodoHeadBlock>
-      <h1>2020년 9월 6일</h1>
-      <div className="day">일요일</div>
+      <h1>{`${year}년 ${month + 1}월 ${date}일`}</h1>
+      <div className="day">{`${week[dday]}`}</div>
       <div className="task-wrap">
-        <div className="task-left">할 일 2개 남음</div>
+        <div className="task-left">{`할 일 ${todos.length}개 남음`}</div>
         <button className="clearbtn" onClick={clear}>
           초기화
         </button>
