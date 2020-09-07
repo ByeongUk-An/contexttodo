@@ -5,10 +5,10 @@ export const Context = createContext();
 
 function ContextPro(props) {
   const [todos, setTodos] = useState([
-    { text: "안녕하세요", id: 1, done: true },
-    { text: "안녕", id: 2, done: true },
-    { text: "헬로우", id: 3, done: true },
-    { text: "바이", id: 4, done: true },
+    { text: "스케줄을", id: 1 },
+    { text: "입력해", id: 2 },
+    { text: "주세요", id: 3 },
+    { text: "뿌잉", id: 4 },
   ]);
   const [selecItem, setSelectItem] = useState(null);
 
@@ -21,9 +21,6 @@ function ContextPro(props) {
   const clear = () => {
     setTodos([]);
   };
-  //   const onDone = (done) => {
-  //     setTodos(todos.map((todo) => (todo.done ? !todo.done : todo.done)));
-  //   };
 
   const select = (id) => {
     const item = todos.find((todo) => todo.id === id);

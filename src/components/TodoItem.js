@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete, MdDoneAll } from "react-icons/md";
 import { Context } from "../contexts/Context";
@@ -42,6 +42,11 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
+  ${(props) =>
+    props.done &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 const TodoItemBlock = styled.div`
@@ -56,14 +61,17 @@ const TodoItemBlock = styled.div`
   }
 `;
 
-function TodoItem({ done, todo }) {
+function TodoItem({ todo }) {
   const { onRemove } = useContext(Context);
+  const [done, setDone] = useState(false);
 
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDoneAll />}</CheckCircle>
+      <CheckCircle done={done} onClick={() => setDone(!done)}>
+        {done && <MdDoneAll />}
+      </CheckCircle>
       <Text done={done}>{todo.text}</Text>
-      <Remove onClick={() => onRemove(todo.id)}>
+      <Remove onClick={() => onRemove(todo.id)} done={done}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>
