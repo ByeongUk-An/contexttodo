@@ -22,7 +22,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "eloquent-torvalds-c07cc8.netlify.app",
+  "homepage": "cranky-booth-4872cd.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
