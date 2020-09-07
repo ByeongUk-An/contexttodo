@@ -22,7 +22,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://byeonguk-an.github.io/contexttodo/",
+  "homepage": "cranky-booth-4872cd.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
