@@ -22,7 +22,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "cranky-booth-4872cd.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
