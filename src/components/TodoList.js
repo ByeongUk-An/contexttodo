@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
+import { useContext } from "react";
+import { Context } from "../contexts/Context";
 
 const TodoListBlock = styled.div`
   flex: 1;
@@ -10,12 +12,15 @@ const TodoListBlock = styled.div`
 `;
 
 function Todolist() {
+  const { todos } = useContext(Context);
   return (
     <TodoListBlock>
-      <TodoItem text="프로젝트 생성하기" done={true}></TodoItem>
-      <TodoItem text="컴포넌트 스타일링하기" done={true}></TodoItem>
-      <TodoItem text="컨텍스트 만들기" done={false}></TodoItem>
-      <TodoItem text="기능 구현하기" done={false}></TodoItem>
+      <ul>
+        {todos.map((todo) => {
+          return <TodoItem todo={todo} key={todo.id} done={todo.done} />;
+        })}
+      </ul>
+      {/* <TodoItem text="기능 구현하기" done={false}></TodoItem> */}
     </TodoListBlock>
   );
 }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import { MdDone, MdDelete } from "react-icons/md";
+import { MdDone, MdDelete, MdDoneAll } from "react-icons/md";
+import { Context } from "../contexts/Context";
 
 const CheckCircle = styled.div`
   width: 32px;
@@ -55,12 +56,14 @@ const TodoItemBlock = styled.div`
   }
 `;
 
-function TodoItem({ id, done, text }) {
+function TodoItem({ done, todo }) {
+  const { onRemove } = useContext(Context);
+
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
-      <Text done={done}>{text}</Text>
-      <Remove>
+      <CheckCircle done={done}>{done && <MdDoneAll />}</CheckCircle>
+      <Text done={done}>{todo.text}</Text>
+      <Remove onClick={() => onRemove(todo.id)}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>

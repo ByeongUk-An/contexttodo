@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useContext } from "react";
+import { Context } from "../contexts/Context";
 
 const TodoHeadBlock = styled.div`
   padding-top: 48px;
@@ -18,20 +20,44 @@ const TodoHeadBlock = styled.div`
     color: #868e96;
     font-size: 21px;
   }
+  .task-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
   .task-left {
     color: #20c997;
     font-size: 18px;
     margin-top: 40px;
     font-weight: bold;
   }
+  .clearbtn {
+    border: none;
+    outline: none;
+    background: #20c997;
+    color: white;
+    width: 105px;
+    height: 40px;
+    border-radius: 14px;
+    margin-top: 25px;
+    cursor: pointer;
+    &:hover {
+      background: #39daa9;
+    }
+  }
 `;
 
 function TodoHead() {
+  const { clear } = useContext(Context);
   return (
     <TodoHeadBlock>
       <h1>2020년 9월 6일</h1>
       <div className="day">일요일</div>
-      <div className="task-left">할 일 2개 남음</div>
+      <div className="task-wrap">
+        <div className="task-left">할 일 2개 남음</div>
+        <button className="clearbtn" onClick={clear}>
+          초기화
+        </button>
+      </div>
     </TodoHeadBlock>
   );
 }
