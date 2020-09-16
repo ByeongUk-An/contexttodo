@@ -30,6 +30,11 @@ const Text = styled.div`
     css`
       color: #ced4da;
     `}
+  @media ${(props) => props.theme.mobile} {
+    font-size: 16px;
+    margin-bottom: 3px;
+    color: #ffa8a8;
+  }
 `;
 const Remove = styled.div`
   opacity: 0;

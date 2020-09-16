@@ -17,7 +17,7 @@ const TodoHeadBlock = styled.div`
   }
   .day {
     margin-top: 4px;
-    color: #868e96;
+    color: #4c6ef5;
     font-size: 21px;
   }
   .task-wrap {
@@ -33,7 +33,7 @@ const TodoHeadBlock = styled.div`
   .clearbtn {
     border: none;
     outline: none;
-    background: #20c997;
+    background: #be4bdb;
     color: white;
     width: 105px;
     height: 40px;
@@ -41,7 +41,29 @@ const TodoHeadBlock = styled.div`
     margin-top: 25px;
     cursor: pointer;
     &:hover {
-      background: #39daa9;
+      background: #da77f2;
+    }
+  }
+  @media ${(props) => props.theme.mobile} {
+    padding-top: 10px;
+    h1 {
+      font-size: 20px;
+      display: inline-block;
+    }
+    .day {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .task-left {
+      margin: 10px 0 0 10px;
+      color: purple;
+    }
+    .clearbtn {
+      margin: 10px 0 0 0;
+      padding: 0;
+      border-radius: 0;
+      height: 30px;
+      background: #f783ac;
     }
   }
 `;
@@ -68,9 +90,9 @@ function TodoHead() {
       <h1>{`${year}년 ${month + 1}월 ${date}일`}</h1>
       <div className="day">{`${week[dday]}`}</div>
       <div className="task-wrap">
-        <div className="task-left">{`할 일 ${todos.length}개 남음`}</div>
+        <div className="task-left">{`TODO ${todos.length} NUMBER`}</div>
         <button className="clearbtn" onClick={clear}>
-          초기화
+          Clear
         </button>
       </div>
     </TodoHeadBlock>

@@ -14,6 +14,9 @@ const TodoListBlock = styled.div`
     font-size: 24px;
     color: blue;
   }
+  @media ${(props) => props.theme.mobile} {
+    padding: 20px 0;
+  }
 `;
 
 function Todolist() {

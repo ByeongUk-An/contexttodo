@@ -15,6 +15,14 @@ const TodoTemplateBlock = styled.div`
   margin-bottom: 32px;
   display: flex;
   flex-direction: column;
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+    box-shadow: none;
+    overflow-x: none;
+  }
 `;
 
 function TodoTemplate({ children }) {

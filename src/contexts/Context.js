@@ -5,10 +5,10 @@ export const Context = createContext();
 
 function ContextPro(props) {
   const [todos, setTodos] = useState([
-    { text: "스케줄을", id: 1 },
-    { text: "입력해", id: 2 },
-    { text: "주시면", id: 3 },
-    { text: "감사하겠습니다.", id: 4 },
+    { text: "TODO", id: 1 },
+    { text: "ADD", id: 2 },
+    { text: "Please", id: 3 },
+    { text: "Thank you", id: 4 },
   ]);
   const [selecItem, setSelectItem] = useState(null);
 

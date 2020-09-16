@@ -8,4 +8,9 @@ export default createGlobalStyle`
         background: #e9ecef;
         font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'
     }
+    @media ${(props) => props.theme.mobile} {
+        body {
+            background: white;
+        }
+    }
 `;

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { useContext } from "react";
 import ContextPro, { Context } from "../contexts/Context";
 
 const CircleButton = styled.button`
-  background: #38d9a9;
+  background: #7950f2;
   &:hover {
-    background: #63e6be;
+    background: #cc5de8;
   }
   &:active {
-    background: #20c997;
+    background: #eebefa;
   }
 
   z-index: 5;
@@ -37,7 +37,7 @@ const CircleButton = styled.button`
   ${(props) =>
     props.open &&
     css`
-      background: #ff6b6b;
+      background: #f783ac;
       &:hover {
         background: #ff8787;
       }
@@ -46,6 +46,9 @@ const CircleButton = styled.button`
       }
       transform: translate(-50%, 50%) rotate(45deg);
     `}
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const InsertFormPositioner = styled.div`
@@ -62,6 +65,9 @@ const InsertForm = styled.form`
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   border-top: 1px solid #e9ecef;
+  @media ${(props) => props.theme.mobile} {
+    padding: 32px;
+  }
 `;
 
 const Input = styled.input`
@@ -72,6 +78,9 @@ const Input = styled.input`
   outline: none;
   font-size: 18px;
   box-sizing: border-box;
+  @media ${(props) => props.theme.mobile} {
+    font-size: 14px;
+  }
 `;
 
 function TodoCreate() {
@@ -79,6 +88,13 @@ function TodoCreate() {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
   const [text, setText] = useState("");
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width <= 480) {
+      setOpen(true);
+    }
+  }, []);
 
   const onChange = (e) => {
     e.preventDefault();
